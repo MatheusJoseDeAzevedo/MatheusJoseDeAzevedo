@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação do Conteúdo - Estruturas de Controle</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        article {
+            background-color: #f4f4f4;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        aside {
+            background-color: #ddd;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        .header {
+            background-color: #333;
+        }
+
+        #main {
+            padding: 20px;
+        }
+
+        #footer {
+            background-color: #222;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <header>
+        <h1>Avaliação do Conteúdo</h1>
+        <p>Conteúdo avaliado: <strong>Estruturas de Controle</strong></p>
+    </header>
+</div>
+
+<nav>
+    <a href="conteudo.html" target="_self">Voltar ao Conteúdo</a>
+    <a href="#formulario" target="_self">Formulário</a>
+    <a href="avaliacao-pagina.html" target="_self">Avaliar Página</a>
+</nav>
+
+<div id="main">
+<article>    
+    <section id="formulario">
+        <h2>Formulário de avaliação</h2>
+        <p>
+        Responda com sinceridade.
+        </p>
+</article>
+    <form action="conteudo.html" method="get">
+        <fieldset>
+            <legend>Avaliação do conteúdo</legend>
+
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome"><br><br>
+
+            <label for="semestre">Semestre:</label><br>
+            <select id="semestre" name="semestre">
+                <option>1º</option>
+                <option>2º</option>
+                <option>3º</option>
+                <option>4º</option>
+                <option>5º</option>
+                <option>6º</option>
+                <option>7º</option>
+                <option>8º</option>
+            </select><br><br>
+
+                <label>1) Você entendeu a diferença entre <strong>condicionais</strong> e <strong>laços</strong>?</label><br>
+                <input type="radio" name="q1" value="sim"> Sim
+                <input type="radio" name="q1" value="mais-ou-menos"> Mais ou menos
+                <input type="radio" name="q1" value="nao"> Não<br><br>
+
+                <label>2) Qual estrutura é mais indicada para repetir enquanto uma condição for verdadeira?</label><br>
+                <input type="radio" name="q2" value="if"> if/else
+                <input type="radio" name="q2" value="while"> while
+                <input type="radio" name="q2" value="table"> table<br><br>
+
+                <label>3) Marque o que te ajudou mais:</label><br>
+                <input type="checkbox" name="ajudou" value="textos"> Textos explicativos
+                <input type="checkbox" name="ajudou" value="tabela"> Tabela comparativa
+                <input type="checkbox" name="ajudou" value="exemplos"> Exemplos<br><br>
+
+                <label for="nota">4) Nota para o conteúdo (0 a 10):</label><br>
+                <input type="text" id="nota" name="nota"><br><br>
+
+                <label for="comentario">5) Comentário / sugestão:</label><br>
+                <textarea name="comentario" rows="5" cols="30"></textarea><br><br>
+
+                <input type="submit" value="Enviar">
+            </fieldset>
+        </form>
+    </section>
+</div>
+
+<div id="footer">
+    <footer>
+        <h5>Rodapé</h5>
+        <h6>Avaliação do Conteúdo</h6>
+    </footer>
+</div>
+
+</body>
+</html>
