@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação da Página - Material de Estudo Digital</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header, footer {
+            background-color: #607B8B;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav {
+            background-color: #9FB6CD;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        article {
+            background-color: #D1EEEE;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        aside {
+            background-color: #B4CDCD;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        .header {
+            background-color: #333;
+        }
+
+        #main {
+            padding: 20px;
+        }
+
+        #footer {
+            background-color: #222;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <header>
+        <h1>Avaliação da Página</h1>
+        <p>Avalie o visual, organização e navegação do site</p>
+    </header>
+</div>
+
+<nav>
+    <a href="conteudo.html" target="_self">Voltar ao Conteúdo</a>
+    <a href="avaliacao-conteudo.html" target="_self">Avaliar Conteúdo</a>
+    <a href="#formulario" target="_self">Formulário</a>
+</nav>
+
+<div id="main">
+<article>
+  <section id="formulario">
+    <h2>Formulário de avaliação da página</h2>
+
+        <h3>O que será avaliado?</h3>
+        <p>
+            Esta avaliação é sobre a <strong>página</strong> (layout, leitura, organização), e não sobre o conteúdo.
+        </p>
+</article>
+
+    <form action="conteudo.html" method="get">
+        <fieldset>
+            <legend>Avaliação da página</legend>
+
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome"><br><br>
+
+            <label for="dispositivo">Dispositivo usado:</label><br>
+            <select id="dispositivo" name="dispositivo">
+                <option>Celular</option>
+                <option>Notebook</option>
+                <option>Computador</option>
+                <option>Tablet</option>
+            </select><br><br>
+
+            <label>1) A navegação foi fácil?</label><br>
+            <input type="radio" name="nav" value="muito-facil"> Muito fácil
+            <input type="radio" name="nav" value="facil"> Fácil
+            <input type="radio" name="nav" value="dificil"> Difícil<br><br>
+
+            <label>2) O visual da página está agradável?</label><br>
+            <input type="radio" name="visual" value="sim"> Sim
+            <input type="radio" name="visual" value="mais-ou-menos"> Mais ou menos
+            <input type="radio" name="visual" value="nao"> Não<br><br>
+
+            <label>3) Marque se encontrou algum problema:</label><br>
+            <input type="checkbox" name="problema" value="cores"> Cores/contraste
+            <input type="checkbox" name="problema" value="texto"> Texto confuso
+            <input type="checkbox" name="problema" value="menu"> Menu confuso
+            <input type="checkbox" name="problema" value="nenhum"> Nenhum<br><br>
+
+            <label for="nota">4) Nota geral para a página (0 a 10):</label><br>
+            <input type="text" id="nota" name="nota"><br><br>
+
+            <label for="sugestoes">5) Sugestões:</label><br>
+            <textarea name="sugestoes" rows="5" cols="30"></textarea><br><br>
+
+            <label for="favorito">6) Selecione seu item favorito da página:</label>
+            
+            <input list="itens" name="favorito">
+                <datalist id="itens">
+                    <option value="Menu">
+                    <option value="Tabelas">
+                    <option value="Textos">
+                    <option value="Imagem">
+                </datalist><br><br>
+
+                <input type="submit" value="Enviar">
+            </fieldset>
+        </form>
+    </section>
+</div>
+
+<div id="footer">
+    <footer>
+        <h5>Rodapé</h5>
+        <h6>Avaliação da Página</h6>
+    </footer>
+</div>
+
+</body>
+</html>
