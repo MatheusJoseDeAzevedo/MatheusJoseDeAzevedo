@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Carros</title>
+	<style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px 10px;
+        }
+
+        main {
+            border: 4px double #ff1e42;
+            border-radius: 20px;
+            padding: 20px 10px;
+            margin: 20px auto;
+            max-width: 700px;
+            background: linear-gradient(135deg, #111 40%, transparent 40%);
+            box-shadow: 0 0 20px rgba(255, 30, 66, 0.4);
+        }
+
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-shadow: 0 0 8px rgba(255, 30, 66, 0.8);
+            margin: 0 0 10px 0;
+        }
+
+        p {
+            color: #ffffff;
+            text-align: center;
+            margin: 10px 0 30px 0;
+            line-height: 1.4;
+        }
+
+        .carros-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .carro {
+            text-align: center;
+            width: 270px; /* garante tamanho igual para todos os cards */
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #111;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .carro:hover {
+            transform: translateY(-5px); /* suave "levanta" o card */
+            box-shadow: 0 8px 20px rgba(255, 30, 66, 0.5);
+        }
+
+        .carro img {
+            width: 100%;
+            height: 160px;
+            border: 2px solid #ffffff;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .carro img:hover {
+            transform: scale(1.02); /* leve zoom na imagem */
+        }
+
+        .carro h3 {
+            margin-top: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .carro a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: normal;
+            border-bottom: 1px dashed rgba(255, 30, 66, 0.6);
+            transition: border-bottom 0.2s ease;
+        }
+
+        .carro a:hover {
+            border-bottom-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+   <main>
+	<h1>Bem Vindo Ao Catalogo De Carros</h1>
+	<p>Podemos ver alguns modelos de carros que são considerados um dos mais rapidos da atualidade!</p>
+   </main>
+
+    <div class="carros-container">
+    <div class="carro">
+            <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2020/03/koenigsegg-jesko-e1584389250739.jpg?quality=70&strip=info&w=720&crop=1" alt="Koenigsegg Jesko Absolut">
+            <h3><a href=https://www-koenigsegg-com.translate.goog/model/jesko-absolut?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc" style="text-decoration: none; color: #ffffff;">Koenigsegg Jesko Absolut</a></h3>
+        </div>
+
+ 	<div class="carro">
+            <img src="https://cdn.awsli.com.br/2500x2500/2571/2571273/produto/264810025/ts0363--1--wyf02c1x0l.jpeg" alt="Bugatti Chiron Super Sport 300+">
+            <h3><a href="https://www.bugatti.com/en/models/chiron-super-sport-300" style="text-decoration: none; color: #ffffff;">Bugatti Chiron Super Sport 300+</a></h3>
+        </div>  
+
+	<div class="carro">
+            <img src="https://scontent-gru2-2.cdninstagram.com/v/t51.82787-15/516846820_18358391611159830_317829192907517217_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzY3MDg2MzQwMDM2MzU3ODUzNQ%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEzMzJ4ODg3LnNkci5DMyJ9&_nc_ohc=o-e8wwymP_4Q7kNvwGaSV_t&_nc_oc=Admoz0VgUKLXOdd6HxltGYV54Ax-gFQznJY6q1ix7LHSXsl7CoItblj3aNeoQH3u29X6qJkKbbE_AO9wYAy8t4Ye&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-gru2-2.cdninstagram.com&_nc_gid=8pew2eLG1JUljVTuTWmZqA&oh=00_AfukFlc9RcS_Mu1ts7qgLCVI0e4Ha_UxE97NwTCfKRNaaw&oe=6991AED1" alt="SSC Tuatara">
+            <h3><a href="https://www-sscnorthamerica-com.translate.goog/model/tuatara?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc" style="text-decoration: none; color: #ffffff;">SSC Tuatara</a></h3>
+        </div> 
+
+	<div class="carro">
+            <img src="https://s2-autoesporte.glbimg.com/-iSjrFyzrlOXsVnxNEqy9vabe2o=/0x0:1467x933/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2023/l/3/jJ5I0nRlaLJps5KTyY2A/hennessey-venom-f5-revolution-coupe-00001.jpg" alt="Hennessey Venom F5">
+            <h3><a href="https://www.hennesseyspecialvehicles.com" style="text-decoration: none; color: #ffffff;">Hennessey Venom F5</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://www.planetcarsz.com/img/noticias/2024/08/rimac-nevera-r-2025-003-20240818104948-1280x925.jpg" alt="Rimac Nevera">
+            <h3><a href="https://www-rimac--automobili-com.translate.goog/nevera/?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt&_x_tr_pto=tc" style="text-decoration: none; color: #ffffff;">Rimac Nevera</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://hips.hearstapps.com/hmg-prod/images/mclaren-speedtail-newlead-1540507641.jpg" alt="McLaren Speedtail">
+            <h3><a href="https://cars.mclaren.com/gl_en/ultimate-models/mclaren-speedtail" style="text-decoration: none; color: #ffffff;">McLaren Speedtail</a></h3>
+        </div>
+
+        <div class="carro">
+            <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2026/202601/20260112/mercedesbenz-sl-63-amg-4-0-v8-turbo-phev-s-e-performance-4matic+-speedshift-wmimagem19154801615.webp?s=fill&w=552&h=414&q=60" alt="Mercedes-AMG SL 63 S">
+            <h3><a href="https://www.mercedes-benz.pt/passengercars/models/cabriolet-roadster/sl-e/overview.html" style="text-decoration: none; color: #ffffff;">Mercedes-AMG SL 63 S</a></h3>
+        </div>
+
+        <div class="carro">
+            <img src="https://garagem360.com.br/wp-content/uploads/2024/07/1_porsche-cayenne-turbo-gt-2025-2.webp" alt="Porsche Cayenne Turbo GT">
+            <h3><a href="https://www.porsche.com/brazil/pt/models/cayenne/cayenne-coupe-models/cayenne-coupe-turbo-gt/" style="text-decoration: none; color: #ffffff;">Porsche Cayenne Turbo GT</a></h3>
+        </div>
+
+        <div class="carro">
+            <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2025/202512/20251209/porsche-911-3.0-24v-h6-gasolina-carrera-gts-cabriolet-pdk-wmimagem12091625231.jpg?s=fill&w=552&h=414&q=60" alt="Porsche 911 Carrera GTS Cabriolet">
+            <h3><a href="https://www.porsche.com/brazil/pt/models/911/carrera-cabriolet-models/911-carrera-gts-cabriolet/" style="text-decoration: none; color: #ffffff;">Porsche 911 Carrera GTS Cabriolet</a></h3>
+        </div>
+
+        <div class="carro">
+            <img src="https://img.olx.com.br/images/62/621526453639570.jpg" alt="Audi RS6 4.0 Avant TFSI Bi-TB">
+            <h3><a href="https://www.e-ramada.com.br/estoque/seminovos/rs6-avant-rs6-40-avant-tfsi-bi-tb-quattiphib-22353587" style="text-decoration: none; color: #ffffff;">Audi RS6 4.0 Avant TFSI Bi-TB</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://image.webmotors.com.br/_fotos/anunciousados/gigante/2026/202602/20260202/mercedesbenz-c-63-amg-4-0-v8-turbo-gasolina-s-speedshift-wmimagem12005097022.webp" alt="Mercedes-AMG C63 S">
+            <h3><a href="https://www2.mercedes-benz.com.br/passengercars/models/saloon/c-class/amg.html" style="text-decoration: none; color: #ffffff;">Mercedes-AMG C63 S</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://www.popsci.com/wp-content/uploads/2023/02/13/Mustang-Dark-Horse-Carbon-Fiber-Wheels_01.jpg?quality=85" alt="Ford Mustang Dark Horse">
+            <h3><a href="https://www.ford.com.br/performance/mustang-dark-horse/?utm_source=google-ads_na&utm_medium=search&utm_content=search_search_123562_awareness&utm_campaign=sustain&bannerid=123562|google-ads|na|search|search|sustain|awareness&gclsrc=aw.ds&gad_source=1&gad_campaignid=23436905427&gclid=Cj0KCQiAy6vMBhDCARIsAK8rOgk3u0oc128HJyDUenha4ooLB2U1SovaaAR-2iQvy3TbbOefBNVHvXsaAuttEALw_wcB" style="text-decoration: none; color: #ffffff;">Ford Mustang Dark Horse</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://www.planetcarsz.com/img/carros/2025/02/volvo-ex30-cross-country-2026-100-20250212200915-1280x925.jpg" alt="Volvo EX30 Cross Country">
+            <h3><a href="https://www.volvocars.com/br/cars/ex30-electric/" style="text-decoration: none; color: #ffffff;">Volvo EX30 Cross Country</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/2025/mustang-manual/overview/colorizer/cinza_torres/fbr-mustang-mt-colorizer-cinza-torres.jpg.dam.full.high.jpg/1747084478688.jpg" alt="Ford Mustang GT (manual)">
+            <h3><a href="https://motor1.uol.com.br/news/758503/lancamento-ford-mustang-2025-manual/" style="text-decoration: none; color: #ffffff;">Ford Mustang GT (manual)</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://brasil.perfil.com/wp-content/uploads/2024/08/Small-17093-2024VolkswagenJettaGLI40thAnniversaryEdition-e1690226537160.webp" alt="Volkswagen Jetta GLI">
+            <h3><a href="https://www.vw.com.br/pt/carros/Jetta.html" style="text-decoration: none; color: #ffffff;">Volkswagen Jetta GLI</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://quatrorodas.abril.com.br/wp-content/uploads/2024/10/Ram-1500-Laramie-hurricane-2.jpg?crop=1&resize=1212,909" alt="RAM 1500 Laramie">
+            <h3><a href="https://www.ram.com.br/picapes/dakota/monte.html?gclsrc=aw.ds&gad_source=1&gad_campaignid=23501128455&gclid=Cj0KCQiAy6vMBhDCARIsAK8rOglVBpMhaDCbRwuf5f-VTcVXHxexOfmlHfWtoSVE5DuBgWjGVryStrcaAkIwEALw_wcB#versao" style="text-decoration: none; color: #ffffff;">RAM 1500 Laramie</a></h3>
+        </div>
+
+	<div class="carro">
+            <img src="https://nonamarcha.com.br/wp-content/uploads/2025/12/308-Zeekr-001-Flagship-2025.webp" alt="Zeekr 001 flagship">
+            <h3><a href="https://www.zeekrlife.com/pt-br/models/001" style="text-decoration: none; color: #ffffff;">Zeekr 001 flagship</a></h3>
+        </div>
+    </div>
+</body>
+</html>
