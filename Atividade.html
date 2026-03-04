@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,27 +13,37 @@
             padding: 0;
         }
 
+        h1{
+            color: #000000;
+        }
+
+        p{
+            color: #000000;
+        }
+
         header, footer {
-            background-color: #607B8B;
+            background-color: #8B7E66;
             color: white;
             text-align: center;
             padding: 15px;
         }
 
         nav {
-            background-color: #cee5e8;
+            background-color: #CDBA96;
             padding: 10px;
             text-align: center;
         }
 
-    #navPreview {
-  background-color: #cee5e8;
-  padding: 12px 16px;
-  justify-content: space-around;
-  gap: 0px; 
-  color: #000000;
-}
-#navPreview a { color: #000000; }
+        #navPreview {
+            background-color: #CDBA96;
+            padding: 12px 16px;
+            justify-content: space-around;
+            gap: 0px; 
+            color: #000000;
+        }
+        #navPreview a { 
+            color: #000000;
+        }
 
         nav a {
             color: white;
@@ -47,13 +56,13 @@
         }
 
         article {
-            background-color: #D1EEEE;
+            background-color: #FFF8DC;
             padding: 15px;
             margin-bottom: 15px;
         }
 
         aside {
-            background-color: #B4CDCD;
+            background-color: #CDC8B1;
             padding: 10px;
             margin-top: 10px;
         }
@@ -63,12 +72,17 @@
             border-collapse: collapse;
         }
 
-        table, th, td {
+        table, td {
             border: 1px solid black;
             padding: 8px;
-            background-color: #135a71; 
-            color: #fff;
+            background-color: #FFFACD; 
+            color: #000000;
         }
+        thead th { 
+            background-color: #CDC9A5; 
+            color: #000000;
+        }
+
 
         .header {
             background-color: #333;
@@ -402,10 +416,12 @@ Valor atual: melhor não calcular.
     <h2>Tabela Totalmente Necessária</h2>
 
     <table border="1">
+     <thead>
         <tr>
             <th>Curiosidade</th>
             <th>Nível de Inutilidade</th>
         </tr>
+     </thead>   
         <tr>
             <td>Spam vem de presunto</td>
             <td>Alto</td>
@@ -576,11 +592,13 @@ CON CON
     <h2>Tabela do Caos Digital</h2>
 
     <table border="1">
+      <thead>  
         <tr>
             <th>Evento</th>
             <th>Nível de Caos</th>
             <th>Custo Aproximado</th>
         </tr>
+      </thead>  
         <tr>
             <td>Ariane 5</td>
             <td>Explosivo</td>
