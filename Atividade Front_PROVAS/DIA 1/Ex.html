@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Copa do Mundo FIFA 2026</title>
+</head>
+<body>
+
+    <header>
+        <h1>Copa do Mundo FIFA 2026</h1>
+        <p>Informações gerais sobre a maior Copa da história.</p>
+    </header>
+
+    <nav>
+        <a href="#organizacao">Organização e Sedes</a> |
+        <a href="#formato">Novo Formato</a> |
+        <a href="#impacto">Expectativas e Impacto</a>
+    </nav>
+
+    <section id="organizacao">
+        <h2>🌍 Organização e Sedes</h2>
+        <p>
+            A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países:
+            Estados Unidos, Canadá e México.
+        </p>
+        <p>
+            Essa será também a maior Copa da história em número de cidades-sede, com partidas
+            distribuídas por diversas regiões da América do Norte, ampliando o alcance global
+            do torneio.
+        </p>
+    </section>
+
+    <section id="formato">
+        <h2>⚽ Novo Formato</h2>
+        <p>
+            O torneio contará com 48 seleções, em vez das tradicionais 32.
+        </p>
+        <p>
+            As equipes serão divididas em grupos, aumentando o número total de jogos e
+            proporcionando mais oportunidades para países de diferentes continentes
+            participarem.
+        </p>
+        <p>
+            Essa mudança foi promovida pela FIFA para tornar a competição mais inclusiva
+            e competitiva.
+        </p>
+    </section>
+
+    <section id="impacto">
+        <h2>🏆 Expectativas e Impacto</h2>
+        <p>
+            A edição de 2026 promete ser uma das mais assistidas da história, com grande impacto
+            econômico e cultural nos países-sede.
+        </p>
+        <p>
+            Seleções tradicionais e emergentes devem protagonizar jogos de alto nível,
+            aumentando o interesse global pelo futebol e fortalecendo o esporte em novas regiões.
+        </p>
+        <button onclick="mostrarTabelaJogos()">
+             Mostrar Tabela de Jogos
+        </button>
+    </section>
+    
+
+    <footer>
+        <p>© 2026 - Informações educativas sobre a Copa do Mundo</p>
+    </footer>
+
+    <script>
+    function mostrarTabelaJogos() {
+
+        if (document.getElementById("imagem-jogos")) {
+            return;
+        }
+
+        var imagem = document.createElement("img");
+
+        imagem.src = "img/Tabela_Jogos.png";
+        imagem.alt = "Tabela de jogos da Copa do Mundo 2026";
+        imagem.id = "imagem-jogos";
+
+        imagem.style.display = "block";
+        imagem.style.margin = "30px auto";
+        imagem.style.maxWidth = "400px";
+        imagem.style.borderRadius = "10px";
+
+        document.body.appendChild(imagem);
+    }
+    </script>
+</body>
+</html>
