@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Conversor de Temperatura</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light d-flex justify-content-center align-items-center vh-100">
+
+  <div class="card shadow p-4 text-center" style="width: 350px;">
+    <h3 class="mb-3">Conversor de Temperatura</h3>
+    <div class="mb-3 text-start">
+      <label class="form-label fw-bold">Celsius (°C)</label>
+      <input type="number" id="celsius" step="0.1" class="form-control">
+    </div>
+    <div class="mb-2 text-start">
+      <label class="form-label fw-bold">Fahrenheit (°F)</label>
+      <input type="number" id="fahrenheit" step="0.1" class="form-control">
+    </div>
+  </div>
+
+  <script>
+    const celsiusInput = document.getElementById("celsius");
+    const fahrenheitInput = document.getElementById("fahrenheit");
+
+    let bloqueio = false;
+    celsiusInput.addEventListener("input", () => {
+      if (bloqueio) return;
+      bloqueio = true;
+
+      let c = parseFloat(celsiusInput.value);
+
+      if (!isNaN(c)) {
+        let f = (c * 9/5) + 32;
+        fahrenheitInput.value = f.toFixed(2);
+      } else {
+        fahrenheitInput.value = "";
+      }
+
+      bloqueio = false;
+    });
+
+    fahrenheitInput.addEventListener("input", () => {
+      if (bloqueio) return;
+      bloqueio = true;
+
+      let f = parseFloat(fahrenheitInput.value);
+
+      if (!isNaN(f)) {
+        let c = (f - 32) * 5/9;
+        celsiusInput.value = c.toFixed(2);
+      } else {
+        celsiusInput.value = "";
+      }
+
+      bloqueio = false;
+    });
+  </script>
+</body>
+</html>
