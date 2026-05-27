@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Paciência</title>
+
+  <style>
+    body {
+      background: #0b5c1a;
+      font-family: Arial;
+      text-align: center;
+      color: white;
+    }
+
+    #game { width: 1100px; margin: auto; }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .area { display: flex; gap: 10px; }
+
+
+    .pile, .column {
+      width: 90px;
+      height: 130px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,0.3);
+      position: relative;
+    }
+
+    .column { height: 520px; }
+
+    .card {
+      width: 90px;
+      height: 130px;
+      position: absolute;
+      cursor: grab;
+      transition: 0.2s;
+    }
+
+    .card:hover { transform: scale(1.05); }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+
+    .back {
+      background-image: url("https://deckofcardsapi.com/static/img/back.png");
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+    }
+
+    #info {
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Paciência Premium</h1>
+
+  <div id="info">
+    ⏱ Tempo: <span id="time">0</span>s |
+    ⭐ Pontos: <span id="score">0</span>
+    <br><br>
+    <button onclick="init()">🔄 Novo Jogo</button>
+  </div>
+
+  <div id="game">
+    <div class="top">
+      <div class="area">
+        <div id="deck" class="pile"></div>
+        <div id="waste" class="pile"></div>
+      </div>
+      <div id="foundations" class="area"></div>
+    </div>
+    <div id="tableau" class="area"></div>
+  </div>
+
+  <div id="winScreen" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:999;">
+    <div style="background:white; color:black; padding:30px; border-radius:10px; text-align:center;">
+      <h2>🎉 Parabéns! Você venceu!</h2>
+      <button onclick="init()">🔄 Novo Jogo</button>
+    </div>
+  </div>
+
+<script>
+  const suits=["♠","♥","♦","♣"];
+  const values=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+
+  let deck=[],waste=[],tableau=[],foundations=[[],[],[],[]];
+  let draggedStack=null, origin=null;
+  let score=0,time=0;
+
+  function checkWin(){
+    let total = foundations.reduce((sum, pile) => sum + pile.length, 0);
+    if(total === 52){
+      setTimeout(() => {
+        document.getElementById("winScreen").style.display = "flex";
+        time = 0; 
+        document.getElementById("time").innerText = time;
+        startWinAnimation();
+      }, 300);
+    }
+  }
+
+  function getCode(card){
+    const suitMap = {
+      "♠": "S",
+      "♥": "H",
+      "♦": "D",
+      "♣": "C"
+    };
+    let value = card.value;
+    if (value === "10") value = "0";
+    return value + suitMap[card.suit];
+  }
+
+  function createDeck(){
+    deck=[];
+    for(let s of suits){
+      for(let v of values){
+        deck.push({suit:s,value:v,rank:values.indexOf(v),faceUp:false});
+      }
+    }
+  }
+
+  function shuffle(a){
+    for(let i=a.length-1;i>0;i--){
+      let j=Math.floor(Math.random()*(i+1));
+      [a[i],a[j]]=[a[j],a[i]];
+    }
+  }
+
+  function setup(){
+    tableau=[];
+    foundations=[[],[],[],[]];
+    waste=[];
+    for(let i=0;i<7;i++){
+      tableau[i]=[];
+      for(let j=0;j<=i;j++){
+        let c=deck.pop();
+        c.faceUp=(j===i);
+        tableau[i].push(c);
+      }
+    }
+  }
+
+  function render(){
+    renderDeck();
+    renderWaste();
+    renderTableau();
+    renderFoundations();
+    document.getElementById("score").innerText=score;
+  }
+
+  function renderDeck(){
+    let d=document.getElementById("deck");
+    d.innerHTML="";
+    d.onclick=draw;
+    if(deck.length){
+      let c=document.createElement("div");
+      c.className="card back";
+      d.appendChild(c);
+    }
+  }
+
+  function renderWaste(){
+    let w=document.getElementById("waste");
+    w.innerHTML="";
+    if(waste.length){
+      w.appendChild(makeCard(waste[waste.length-1],"waste",0));
+    }
+  }
+
+  function renderFoundations(){
+    let f=document.getElementById("foundations");
+    f.innerHTML="";
+    foundations.forEach((p,i)=>{
+      let div=document.createElement("div");
+      div.className="pile";
+      if(p.length){
+        div.appendChild(makeCard(p[p.length-1],"foundation",i));
+      }
+      div.ondragover=e=>e.preventDefault();
+      div.ondrop=()=>drop("foundation",i);
+      f.appendChild(div);
+    });
+  }
+
+  function renderTableau(){
+    let t=document.getElementById("tableau");
+    t.innerHTML="";
+    tableau.forEach((col,i)=>{
+      let div=document.createElement("div");
+      div.className="column";
+      col.forEach((c,j)=>{
+        let el=makeCard(c,"tableau",i,j);
+        el.style.top=(j*25)+"px";
+        div.appendChild(el);
+      });
+      div.ondrop=()=>drop("tableau",i);
+      div.ondragover=e=>e.preventDefault();
+      t.appendChild(div);
+    });
+  }
+
+  function makeCard(card,type,i,j){
+    let d=document.createElement("div");
+    d.className="card";
+    if(!card.faceUp){
+      d.classList.add("back");
+    }else{
+      let img=document.createElement("img");
+      img.src="https://deckofcardsapi.com/static/img/"+getCode(card)+".png";
+      d.appendChild(img);
+      d.draggable=true;
+      d.ondblclick=()=>autoMove(card);
+      d.ondragstart=()=>{
+        origin={type,i,j};
+        draggedStack=(type==="tableau")
+          ? tableau[i].slice(j)
+          : [waste[waste.length-1]];
+      };
+    }
+    return d;
+  }
+
+  function draw(){
+    if(deck.length){
+      let c=deck.pop();
+      c.faceUp=true;
+      waste.push(c);
+    }else{
+      deck=waste.reverse().map(c=>({...c,faceUp:false}));
+      waste=[];
+    }
+    render();
+  }
+
+  function red(c){ return c.suit==="♥"||c.suit==="♦"; }
+
+  function canStack(s,t){
+    if(!t) return s[0].rank===12;
+    return red(s[0])!==red(t)&&s[0].rank===t.rank-1;
+  }
+
+  function canFoundation(c,p){
+    let t=p[p.length-1];
+    if(!t) return c.rank===0;
+    return c.suit===t.suit && c.rank===t.rank+1;
+  }
+
+  function drop(type,i){
+    if(!draggedStack) return;
+    if(type==="tableau"){
+      let col=tableau[i];
+      let target=col[col.length-1];
+      if(canStack(draggedStack,target)) move(col);
+    }
+
+    if(type==="foundation" && draggedStack.length===1){
+      if(canFoundation(draggedStack[0],foundations[i]))
+        move(foundations[i]);
+    }
+    render();
+    checkWin(); 
+  }
+
+  function move(dest){
+    if(origin.type==="waste"){
+      dest.push(waste.pop());
+      score+=5;
+    }
+
+    if(origin.type==="tableau"){
+      let col=tableau[origin.i];
+      dest.push(...col.splice(origin.j));
+      score+=10;
+      if(col.length && !col[col.length-1].faceUp){
+        col[col.length-1].faceUp=true;
+        score+=5;
+      }
+    }
+  }
+
+  function autoMove(card){
+    for(let i=0;i<4;i++){
+      if(canFoundation(card,foundations[i])){
+        origin.type==="waste"
+          ? foundations[i].push(waste.pop())
+          : foundations[i].push(tableau[origin.i].pop());
+        score+=20;
+        render();
+        break;
+      }
+    }
+  }
+
+  setInterval(()=>{
+    time++;
+    document.getElementById("time").innerText=time;
+  },1000);
+
+  function init(){
+    let win = document.getElementById("winScreen");
+    if(win){win.style.display = "none";}
+    document.querySelectorAll(".fallCard").forEach(e => e.remove());
+    time = 0;
+    document.getElementById("time").innerText = time;
+    deck = [];
+    waste = [];
+    tableau = [];
+    foundations = [[],[],[],[]];
+    createDeck();
+    shuffle(deck);
+    setup();
+    render();
+  }
+
+  init();
+</script>
+
+</body>
+</html>
